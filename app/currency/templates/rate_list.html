@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Rates List
+{% endblock title %}
+
+{% block content %}
+
+  <table border="1"
+  style="background-color: lightgreen">
+    <tr>
+      <th>ID</th>
+      <th>Buy</th>
+      <th>Sell</th>
+      <th>Type</th>
+    </tr>
+    {% for rate in rates %}
+      <tr>
+        <td>{{ rate.id }}</td>
+        <td>{{ rate.buy }}</td>
+        <td>{{ rate.sell }}</td>
+        <td>{{ rate.type }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+{% endblock content %}
