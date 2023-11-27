@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{%  block title %}
+    Contact List
+{% endblock title %}
+
+{% block content %}
+
+  <table border="1"
+  style="background-color: silver">
+    <tr>
+      <th>Email</th>
+      <th>Subject</th>
+      <th>Message</th>
+    </tr>
+    {% for contactus in contacts  %}
+      <tr>
+        <td>{{ contactus.email_from }}</td>
+        <td>{{ contactus.subject }}</td>
+        <td>{{ contactus.message }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+{% endblock content %}
