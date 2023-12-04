@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 
-{%  block title %}
-Contact List
+{% block title %}
+    Contact Details
 {% endblock title %}
 
 {% block content %}
-
-<a href="{% url 'currency:contactus-create' %}">Create</a><br>
-
 
 <table border="1"
        style="background-color: silver">
@@ -19,9 +16,7 @@ Contact List
 
         <th>Edit:</th>
         <th>Delete:</th>
-        <th>Details:</th>
     </tr>
-    {% for contactus in object_list %}
     <tr>
         <td>{{ contactus.id }}</td>
         <td>{{ contactus.email_from }}</td>
@@ -30,10 +25,8 @@ Contact List
 
         <td><a href="{% url 'currency:contactus-update' contactus.id%}">Edit</a></td>
         <td><a href="{% url 'currency:contactus-delete' contactus.id%}">Delete</a></td>
-        <td><a href="{% url 'currency:contactus-details' contactus.id%}">Details</a></td>
     </tr>
 
-    {% endfor %}
 </table>
 
 {% endblock content %}
