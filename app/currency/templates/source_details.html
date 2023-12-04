@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Source Details
+{% endblock title %}
+
+{% block content %}
+  <table border="1" style="background-color: lightgreen">
+    <tr>
+      <th>Id:</th>
+      <th>Name:</th>
+      <th>URL:</th>
+      <th>Delete:</th>
+    </tr>
+    <tr>
+      <td>{{ source.id }}</td>
+      <td>{{ source.name }}</td>
+      <td>{{ source.source_url }}</td>
+      <td><a href="/source/delete/{{ source.id }}">Delete</a></td>
+    </tr>
+  </table>
+{% endblock content %}
