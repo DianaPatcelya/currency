@@ -16,7 +16,7 @@
       <td>{{ source.id }}</td>
       <td>{{ source.name }}</td>
       <td>{{ source.source_url }}</td>
-      <td><a href="/source/delete/{{ source.id }}">Delete</a></td>
+      <td><a href="{% url 'currency:source-delete' source.id%}">Delete</a></td>
     </tr>
   </table>
 {% endblock content %}
