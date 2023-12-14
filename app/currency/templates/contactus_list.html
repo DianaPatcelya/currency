@@ -13,6 +13,7 @@ Contact List
        style="background-color: silver">
     <tr>
         <th>Id:</th>
+        <th>Name</th>
         <th>Email</th>
         <th>Subject</th>
         <th>Message</th>
@@ -24,6 +25,7 @@ Contact List
     {% for contactus in object_list %}
     <tr>
         <td>{{ contactus.id }}</td>
+        <td>{{ contactus.name }}</td>
         <td>{{ contactus.email_from }}</td>
         <td>{{ contactus.subject }}</td>
         <td>{{ contactus.message }}</td>

@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
 
+from django.core.mail import send_mail
 from django.views.generic import (
     ListView, CreateView, UpdateView,
     DeleteView, DetailView, TemplateView
@@ -47,6 +48,32 @@ class ContactUsCreateView(CreateView):
     form_class = ContactUsForm
     success_url = reverse_lazy('currency:contactus-list')
     template_name = 'contactus_create.html'
+
+    def _send_email(self):
+        from django.conf import settings
+        recipient = settings.DEFAULT_FROM_EMAIL
+        subject = 'User contact us'
+        message = f'''
+                Name: {self.object.name}
+                Email: {self.object.email_from}
+                Subject: {self.object.subject}
+                Message: {self.object.message}
+                '''
+
+        send_mail(
+            subject,
+            message,
+            recipient,
+            [recipient],
+            fail_silently=False,
+        )
+
+    def form_valid(self, form):
+        redirect = super().form_valid(form)
+
+        self._send_email()
+
+        return redirect
 
 
 class ContactUsUpdateView(UpdateView):
