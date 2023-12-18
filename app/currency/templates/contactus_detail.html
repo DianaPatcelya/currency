@@ -10,18 +10,22 @@
        style="background-color: silver">
     <tr>
         <th>Id:</th>
+        <th>Name</th>
         <th>Email</th>
         <th>Subject</th>
         <th>Message</th>
+
 
         <th>Edit:</th>
         <th>Delete:</th>
     </tr>
     <tr>
         <td>{{ contactus.id }}</td>
+        <td>{{ contactus.name }}</td>
         <td>{{ contactus.email_from }}</td>
         <td>{{ contactus.subject }}</td>
         <td>{{ contactus.message }}</td>
+
 
         <td><a href="{% url 'currency:contactus-update' contactus.id%}">Edit</a></td>
         <td><a href="{% url 'currency:contactus-delete' contactus.id%}">Delete</a></td>
